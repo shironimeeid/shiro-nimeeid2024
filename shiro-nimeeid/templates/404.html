@@ -1,0 +1,26 @@
+{% extends 'layout2/base.html' %}
+
+{% block title %}
+    <title> Not Found • ShiroNime-id </title>
+{% endblock %}
+
+{% block property %}
+    <meta property="og:title" content="Not Found · ShiroNime-id" />
+    <meta property="og:description" content="shironimee, Animanga read and watch" />
+    <meta property="og:url" content="http://127.0.0.1:8000/" />
+    <meta property="og:site_name" content="shironimee" />
+    <meta property="og:image" content="\static\image\404.png" />
+    <meta property="og:image:secure_url" content="\static\image\404.png" />
+    <meta property="og:image:alt" content="Not Found" />
+    <meta property="og:image:type" content="image\png" />
+{% endblock %}
+
+{% block content %}
+    <section>
+        <header class="major">
+            <h2>404 Not Found</h2>
+        </header>
+        <p>The page you are looking for might have been removed had its name changed or is temporarily unavailable.</p>
+        <span class="image main"><img src="\static\image\menhera.gif" alt="" /></span>
+    </section>
+{% endblock %}

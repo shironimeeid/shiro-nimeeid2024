@@ -1,0 +1,71 @@
+<!-- Menu -->
+<nav id="menu">
+    <header class="major">
+        <h2>Menu</h2>
+    </header>
+    <ul>
+        <li><a href="/">Homepage</a></li>
+        <li><a href="/bookmarks">Bookmarks</a></li>
+        <li>
+            <span class="opener">komik-indo</span>
+            <ul>
+                <li><a href="/komikindo">Home</a></li>
+                <li><a href="/komikindo/daftar-komik">Daftar Komik</a></li>
+                <li><a href="/komikindo/smut">Smut Manga</a></li>
+                <li>
+                    <span>komik</span>
+                    <ul>
+                        <li><a href="/komikindo/manga">Manga</a></li>
+                        <li><a href="/komikindo/manhwa">Manhwa</a></li>
+                        <li><a href="/komikindo/manhua">Manhua</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <span class="opener">Streaming Anime</span>
+            <ul>
+                <li><a href="/otakudesu">Home</a></li>
+                <li><a href="/otakudesu/daftar-anime">Daftar Anime</a></li>
+                <li><a href="/otakudesu/jadwal-rilis">Jadwal Anime</a></li>
+                <li><a href="/otakudesu/complete-anime">Complete Anime</a></li>
+                <li><a href="#">Genre</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <span class="opener">mangabat</span>
+            <ul>
+                <li><a href="/mangabat">Home</a></li>
+                <li><a href="/mangabat/genres">Genres</a></li>
+            </ul>
+        </li>
+        {% comment %} <li>
+            <span>Brightness (Only work in reader)</span>
+            <input type="range" class="form-range" id="brightness" min="10" max="100" value="80">
+        </li> {% endcomment %}
+    </ul>
+</nav>
+
+<!-- Footer -->
+<footer id="footer">
+    <p class="copyright">&copy; ShiroNime. All rights advertisement <a
+        href="https://instagram.com/sora.azami"></p>Instagram @sora.azami</a>.</p>
+        <a href="https://www.youtube.com/@shirokunet4865/videos"></p>Youtube</a>.</p>
+</footer>
+
+<script language="JavaScript">
+    var tanggallengkap = new String();
+    var namahari = ("Minggu Senin Selasa Rabu Kamis Jumat Sabtu");
+    namahari = namahari.split(" ");
+    var namabulan = ("Januari Februari Maret April Mei Juni Juli Agustus September Oktober November Desember");
+    namabulan = namabulan.split(" ");
+    var tgl = new Date();
+    var hari = tgl.getDay();
+    var tanggal = tgl.getDate();
+    var bulan = tgl.getMonth();
+    var tahun = tgl.getFullYear();
+    tanggallengkap = namahari[hari] + ", " +tanggal + " " + namabulan[bulan] + " " + tahun;
+    </script>
+
+<span id='jam' ></span> | <script language='JavaScript'>document.write(tanggallengkap);</script>

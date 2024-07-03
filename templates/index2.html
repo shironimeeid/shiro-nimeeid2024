@@ -1,0 +1,76 @@
+{% extends 'layout2/base.html' %}
+
+{% block content %}
+<section>
+	<div class="col-sm-12">
+		<div id="popupAlert" class="alert fade alert-simple alert-primary alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light brk-library-rendered" role="alert">
+			<!-- Close button removed -->
+			<i class="start-icon fa fa-thumbs-up faa-bounce animated"></i>
+			<strong class="font__weight-semibold">Selamat Datang!</strong> Kamu berhasil masuk ke shironime.
+		</div>
+	</div>
+	
+	<style>
+		@keyframes fadeIn {
+			from { opacity: 0; transform: translateY(-20px); }
+			to { opacity: 1; transform: translateY(0); }
+		}
+	
+		@keyframes fadeOut {
+			from { opacity: 1; }
+			to { opacity: 0; }
+		}
+		#popupAlert {
+			display: none; 
+			animation: fadeIn 1s forwards; 
+		}
+		.fade-out {
+			animation: fadeOut 1s forwards; 
+		}
+	</style>
+	
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			var alertElement = document.getElementById('popupAlert');
+			// Show the alert
+			alertElement.style.display = 'block';
+			
+			// Hide the alert after 5 seconds
+			setTimeout(function() {
+				alertElement.classList.add('fade-out');
+				// Remove the alert from display after the fade-out animation completes
+				setTimeout(function() {
+					alertElement.style.display = 'none';
+				}, 1000); // Corresponds to the duration of the fadeOut animation
+			}, 5000); // Adjust time as needed
+		});
+	</script>
+	
+    <header class="major">
+        <h2>AnimMangaID List</h2>
+    </header>
+        
+    <div class="posts">
+        <article>
+            <a href="#" class="image justify"><img src="/assets/image/komikindo.png" alt=""/></a>
+			<h3>Komikindo</h3>
+			<p>Baca Manga di Komikindo.</p>
+			
+			<ul class="actions">
+				<li><a href="/komikindo" class="button">More</a></li>
+			</ul>
+    	</article>
+        
+		<article>
+			<a href="#" class="image justify"><img src="/assets/image/otakudesu.png" alt=""/></a>
+			<h3>ANIME</h3>
+			<p>Nonton Anime di Shiro-ID.</p>
+									
+			<ul class="actions">
+				<li><a href="/otakudesu" class="button">More</a></li>
+			</ul>
+		</article>
+    </div>
+</section>
+
+{% endblock%}

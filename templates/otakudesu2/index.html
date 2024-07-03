@@ -1,0 +1,136 @@
+{% extends 'layout2/base.html' %}
+
+{% block title %}
+	<title>Home • ShiroNime</title>
+{% endblock %}
+
+{% block property %}
+	<meta property="og:title" content="ShiroNime • Home" />
+	<meta property="og:description" content="Homepage Anime" />
+	<meta property="og:url" content="{{ url }}" />
+	<meta property="og:site_name" content="Komikato" />
+	<meta property="og:image" content="/assets/image/otakudesu.png" />
+	<meta property="og:image:secure_url" content="/assets/image/otakudesu.png" />
+	<meta property="og:image:alt" content="otakudesu_image" />
+	<meta property="og:image:type" content="image/png" />
+{% endblock %}
+
+{% block content %}
+
+
+<style>
+    :root {
+        /* Theme independent colors */
+        --link-hover-bg-color-dark: #0056b3;
+        --link-hover-bg-color-light: #0056b3; /* Ensuring hover color is visible in light mode too */
+
+        /* Light theme colors */
+        --background-color-light: #f0f2f5;
+        --text-color-light: #333;
+        --link-bg-color-light: #007bff; 
+        --link-text-color-light: #ffffff; 
+        --card-background-light: #ffffff;
+        --border-color-light: #ddd;
+
+        /* Dark theme colors */
+        --background-color-dark: #333333;
+        --text-color-dark: #fff;
+        --link-bg-color-dark: #009bff; 
+        --link-text-color-dark: #ffffff; 
+        --card-background-dark: #2b2b2b;
+        --border-color-dark: #555;
+    }
+
+    [data-theme="dark"] {
+        --background-color: var(--background-color-dark);
+        --text-color: var(--text-color-dark);
+        --link-bg-color: var(--link-bg-color-dark);
+        --link-text-color: var(--link-text-color-dark);
+        --link-hover-bg-color: var(--link-hover-bg-color-dark);
+        --card-background: var(--card-background-dark);
+        --border-color: var(--border-color-dark);
+    }
+
+    [data-theme="light"] {
+        --background-color: var(--background-color-light);
+        --text-color: var(--text-color-light);
+        --link-bg-color: var(--link-bg-color-light);
+        --link-text-color: var(--link-text-color-light);
+        --link-hover-bg-color: var(--link-hover-bg-color-light);
+        --card-background: var(--card-background-light);
+        --border-color: var(--border-color-light);
+    }
+
+    body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .links-container a {
+        background-color: var(--link-bg-color);
+        color: var(--link-text-color); /* Ensuring text color contrasts with the background */
+        padding: 5px 10px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 14px;
+        margin-right: 10px; 
+        margin-bottom: 5px; 
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .links-container a:hover {
+        background-color: var(--link-hover-bg-color);
+    }
+</style>
+
+
+	<section>
+		<header class="major">
+			<h2>Newest Anime</h2>
+		</header>
+
+		<div class="posts">
+			{% for anime in ongoing %}
+				<article>
+					<a href="#" class="image center-cropped"><img src="{{anime.thumb}}" alt="{{ anime.name }}" /></a>
+					<h3>{{ anime.name }}</h3>  
+					<p>Nonton {{ anime.name }}</p>
+
+					<ul class="actions">
+						<li><a class="button" href="/otakudesu/{{ anime.endpoint }}">More</a></li>
+					</ul>
+				</article>
+			{% endfor %}
+		</div>
+	</section>
+
+	<section>
+		<header class="major">
+			<h2>Completed Anime</h2>
+		</header>
+
+		<div class="posts">
+			{% for anime in complete %}
+				<article>
+					<a href="#" class="image center-cropped"><img src="{{anime.thumb}}" alt="{{ anime.name }}" /></a>
+					<h3>{{ anime.name }}</h3>  
+					<p>Nonton {{ anime.name }}</p>
+
+					<ul class="actions">
+						<li><a class="button" href="/otakudesu/{{ anime.endpoint }}">More</a></li>
+					</ul>
+				</article>
+			{% endfor %}
+		</div>
+	</section>
+{% endblock %}
+
+{% block search %}
+    <section id="search" class="alt" data-source="otakudesu">
+        <form name="search" action="">
+            <input type="text" name="query" id="query" placeholder="Search" required="">
+        </form>
+    </section>
+{% endblock %}

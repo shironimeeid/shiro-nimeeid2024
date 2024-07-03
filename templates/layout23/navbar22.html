@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Maintenance sedang berlangsung...</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style type="text/css">
+            body { text-align: center; padding: 10%; font: 20px Helvetica, sans-serif; color: #333; }
+            h1 { font-size: 50px; margin: 0; }
+            article { display: block; text-align: left; max-width: 650px; margin: 0 auto; }
+            a { color: #dc8100; text-decoration: none; }
+            a:hover { color: rgb(115, 255, 0); text-decoration: none; }
+            @media only screen and (max-width : 480px) {
+                h1 { font-size: 40px; }
+            }
+        </style>
+    </head>
+    <body>
+        <article>
+            <h1>Situs untuk sementara tidak tersedia.</h1>
+            <p>Pemeliharaan terjadwal sedang berlangsung. Periksa kembali nanti.</p>
+            <p>Kami mohon maaf atas ketidaknyamanan ini.</p>
+            <p id="signature">&mdash; <a href="mailto: shirokochan673@gmail.com">shironimeeid-</a></p>
+        </article>
+    </body>
+</html>
+
+<script language="JavaScript">
+    var tanggallengkap = new String();
+    var namahari = ("Minggu Senin Selasa Rabu Kamis Jumat Sabtu");
+    namahari = namahari.split(" ");
+    var namabulan = ("Januari Februari Maret April Mei Juni Juli Agustus September Oktober November Desember");
+    namabulan = namabulan.split(" ");
+    var tgl = new Date();
+    var hari = tgl.getDay();
+    var tanggal = tgl.getDate();
+    var bulan = tgl.getMonth();
+    var tahun = tgl.getFullYear();
+    tanggallengkap = namahari[hari] + ", " +tanggal + " " + namabulan[bulan] + " " + tahun;
+    </script>
+
+<span id='jam' ></span> | <script language='JavaScript'>document.write(tanggallengkap);</script> 
+

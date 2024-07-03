@@ -1,0 +1,160 @@
+{% extends 'layout2/base.html' %}
+    <script>
+        document.title = "{{ title }} • Otakudesu ";
+    </script>
+
+{% block title %}
+    <title>{{ title }} • shirodesu</title>
+{% endblock %}
+
+{% block property %}
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:description" content="{% for s in sinopsis %} {{ s }} {% endfor %}" />
+    <meta property="og:url" content="{{ url }}" />
+    <meta property="og:site_name" content="Komikato" />
+    <meta property="og:image" content="{{ thumb }}" />
+    <meta property="og:image:url" content="{{ thumb }}" />
+    <meta property="og:image:secure_url" content="{{ thumb }}" />
+    <meta property="og:image:alt" content="anime_image" />
+    <meta property="og:image:type" content="image/png" />
+{% endblock %}
+
+{% block content %}
+
+
+<style>
+    :root {
+        /* Light theme colors */
+        --background-color-light: #f0f2f5;
+        --text-color-light: #333;
+        --card-background-light: #ffffff;
+        --border-color-light: #ddd;
+
+        /* Dark theme colors */
+        --background-color-dark: #333333;
+        --text-color-dark: #fff;
+        --card-background-dark: #2b2b2b;
+        --border-color-dark: #555;
+    }
+
+    [data-theme="dark"] {
+        --background-color: var(--background-color-dark);
+        --text-color: var(--text-color-dark);
+        --card-background: var(--card-background-dark);
+        --border-color: var(--border-color-dark);
+    }
+
+    [data-theme="light"] {
+        --background-color: var(--background-color-light);
+        --text-color: var(--text-color-light);
+        --card-background: var(--card-background-light);
+        --border-color: var(--border-color-light);
+    }
+
+    body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Modernize styles here based on previous styles */
+
+    .button {
+        background-color: transparent;
+        color: var(--text-color);
+        border: 1px solid var(--border-color);
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .button:hover {
+        background-color: var(--border-color);
+        color: var(--background-color);
+    }
+
+    .list-group-item, .table-wrapper, table, th, td {
+        background-color: var(--card-background);
+        border-color: var(--border-color);
+        color: var(--text-color);
+    }
+
+    /* Additional modern design elements */
+</style>
+
+    <section>
+        <header class="main">
+            <h1>{{ main_title }}</h1>
+        </header>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{{ thumb }}" class="img-fluid rounded" alt="...">
+
+                    <div class="mt-3 text-center">
+                        <button class="button" id="bookmark" type="add">+ Bookmark</button>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="col-md-8">
+                    <ul class="list-group">
+                        <li class="list-group-item text-sm-left"><b>Japanese:</b>{{ japanese }}</li>
+                        <li class="list-group-item text-sm-left"><b>Status:</b> {{ status }}</li>
+                        <li class="list-group-item text-sm-left"><b>Produser:</b> {{ producer }}</li>
+                        <li class="list-group-item text-sm-left"><b>Episode:</b> {{ episodes }}</li>
+                        <li class="list-group-item text-sm-left"><b>Genre:</b>{{ genre }}</li>
+                        <li class="list-group-item text-sm-left"><b>Score:</b>⭐{{ skor }}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr>
+    
+            <div class="row">
+                <div class="col-sm-12">
+                    {% for s in sinopsis %}
+                        <p>{{ s }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        
+            <hr class="major">
+
+            <h2> Chapter List </h2>
+            <div class="table-wrapper modl" style="overflow-x:scroll; height:400px;">
+                <table class="table-alt">
+                    <tbody>
+                        {% for ep in eps %}
+                            {% if ep.type == 'List' %}
+                                {% for episode in ep.data %}
+                                    <tr>    
+                                        <td>{{ episode.title }}</td>
+                                        <td><a type="button" class="button fit" href="/otakudesu/eps/{{ episode.endpoint }}" target="_blank">Nonton</a></td>
+                                    </tr>    
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block search %}
+    <section id="search" class="alt" data-source="otakudesu">
+        <form name="search" action="">
+            <input type="text" name="query" id="query" placeholder="Search" required="">
+        </form>
+    </section>
+{% endblock %}
+
+{% block script %}
+    <script>
+        const endpoint = window.location.pathname;
+        const bookmark = db.getItem('bookmarks') || '[]';
+        const isAlready = JSON.parse(bookmark).find(a => a.endpoint === endpoint);
+        if (isAlready) $('#bookmark').text('- Bookmark').attr('type', 'remove');
+    </script>
+{% endblock %}
