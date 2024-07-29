@@ -6,6 +6,10 @@ window.onscroll = function () {
     scrollFunction();
 };
 
+document.getElementById("btn-back").addEventListener("click", function() {
+    history.back();
+});
+
 function scrollFunction() {
     if (
         document.body.scrollTop > 20 ||

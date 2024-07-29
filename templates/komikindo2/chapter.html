@@ -82,6 +82,13 @@
     </button>
 {% endblock %}
 
+{% block main_content %}
+    <!-- Konten Anda di sini -->
+    <button type="button" class="button primary" id="btn-back">
+        <i class="fa-solid fa-arrow-left"></i> Kembali
+    </button>
+{% endblock %}
+
 {% block search %}
     <section id="search" class="alt" data-source="komikindo">
         <form name="search" action>
@@ -89,3 +96,9 @@
         </form>
     </section>
 {% endblock %}
+
+<script>
+    document.getElementById("btn-back").addEventListener("click", function() {
+        history.back();
+    });
+</script>

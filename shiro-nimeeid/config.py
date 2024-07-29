@@ -1,3 +1,3 @@
-OTAKUDESU_BASEURL = "https://otakudesu.cam/"
+OTAKUDESU_BASEURL = "https://otakudesu.cloud/"
 KOMIKINDO_BASEURL =  "https://komikindo.tv/"
-MANGABAT_BASEURL = "https://h.mangabat.com/manga"
+MANGABAT_BASEURL = "https://h.mangabat.com/mangabat"

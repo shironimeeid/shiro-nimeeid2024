@@ -1,12 +1,5 @@
-3.18. Menganalisis fungsi sosial, struktur teks, dan unsur kebahasaan beberapa teks prosedur lisan dan tulis dengan memberi dan meminta informasi terkait manual penggunaan teknologi dan kiat-kiat (tips), pendek dan sederhana, sesuai dengan bidang keahlian dan konteks penggunaannya
+BeautifulSoup4==4.11.1
+Django==4.0.4
+requests==2.27.1
+virtualenv==20.25.0
 
-
-Menelaah fungsi sosial terkait topik dari teks.
-
-Teks Prosedur
-
-Disajikan sebuah teks prosedur (5-7 langkah) terkait manual penggunaan teknologi yang sama dan sebuah pertanyaan tentang topik dari teks prosedur tersebut.
-
-L-3
-
-MUDAH

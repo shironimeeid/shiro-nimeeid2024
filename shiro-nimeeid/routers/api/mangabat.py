@@ -28,6 +28,6 @@ urlpatterns = [
     path('chapter/<str:endpoint>/', chapter, name='api_chapter'),
     path('search/<str:query>/', search, name='search'),
     path('genres/', genres, name='genres'),
-    path('genres/<str:type>/', genres, name='genres'),
-    path('genres/<str:type>/page/<int:pagination>', genres, name='genres'),
+    path('genres/<str:type>/', genres, name='genres_type'),
+    path('genres/<str:type>/page/<int:pagination>/', genres, name='genres_pagination'),
 ]

@@ -23,19 +23,18 @@ re_pattern = [
     re_path(r"^assets/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT})
 ]
 urlpatterns = [
-    path('', views.index, name='index'),
     path('bookmarks/', views.bookmark, name='bookmarks'),
+    path('mangabat/comic/<str:endpoint>/', views.comic, name='comic'),
     path('komikindo/', include('routers.web.komikindo')),
     path('otakudesu/', include('routers.web.otakudesu')),
     path('mangabat/', include('routers.web.mangabat')),
     path('komiku/', include('routers.web.komiku')),
-    #path('bacakomik/', include('routers.web.bacakomik.urls')),
     path('api/komikindo/', include('routers.api.komikindo')),
     path('api/otakudesu/', include('routers.api.otakudesu')),
     path('api/mangabat/', include('routers.api.mangabat')),
     path('api/bacakomik/', include('routers.api.bacakomik')),
     path('api/komiku/', include('routers.api.komiku')),
-    path('', include(re_pattern))
+    path('', include(re_pattern)),  # Include the re_pattern for serving static files
 ] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
 
 handler404 = views.handle_not_found

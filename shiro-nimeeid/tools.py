@@ -3,11 +3,7 @@ import json
 from bs4 import BeautifulSoup
 import base64
 
-req = r#.Session()
-# req.headers.update({
-#     'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
-# })
-
+req = r
 def get(url, options={}):
     response = req.get(url, headers=options.get("headers", {}), params=options.get("params", {}))
     # get status code
